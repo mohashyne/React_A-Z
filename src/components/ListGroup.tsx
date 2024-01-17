@@ -5,16 +5,19 @@
 
 // import { Fragment } from "react";
 function ListGroup() {
-    const items = [
+    let items = [
     "Qatar", 
     "Dubai",
     "Kenya",
     "Uganda",
 ];
+items = [];
 
     return (
         <>
         <h1>List</h1>
+        {/* {items.length === 0 ?  <p>No item found</p> : null} */}
+        {items.length === 0 && <p>No item found</p>}
         <ul className="list-group">
         { items.map(item => (
             // We need a unique key prop for a mapped item
