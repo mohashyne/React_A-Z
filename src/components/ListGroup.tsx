@@ -4,6 +4,8 @@
 // We can also use <> </> instead of <React.Fragment> </React.Fragment>
 
 // import { Fragment } from "react";
+
+import { MouseEvent } from "react";
 function ListGroup() {
     let items = [
     "Qatar", 
@@ -11,7 +13,10 @@ function ListGroup() {
     "Kenya",
     "Uganda",
 ];
-items = [];
+
+// we need to fix the typescript issue by importing mouseEvent
+// Event handler
+const handleClick = (event: MouseEvent) => console.log(event)
 
     return (
         <>
@@ -19,9 +24,13 @@ items = [];
         {/* {items.length === 0 ?  <p>No item found</p> : null} */}
         {items.length === 0 && <p>No item found</p>}
         <ul className="list-group">
-        { items.map(item => (
+        { items.map((item, index) => (
             // We need a unique key prop for a mapped item
-        <li key={item} >{item}</li>
+        <li className="list-group-item" key={item} 
+        // onClick={() => console.log(item, index)}
+        onClick={handleClick} >
+        {item}
+        </li>
         ))}
         </ul>
       </>
